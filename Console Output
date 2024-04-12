@@ -1,0 +1,127 @@
+Started by user Pranjal Wagh
+Obtained Jenkinsfile.txt from git https://github.com/pranjalwagh/task6.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\ProgramData\Jenkins\.jenkins\workspace\task6
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\workspace\task6\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/pranjalwagh/task6.git # timeout=10
+Fetching upstream changes from https://github.com/pranjalwagh/task6.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.44.0.windows.1'
+ > git.exe fetch --tags --force --progress -- https://github.com/pranjalwagh/task6.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision d0664e5be7487b300ed04c4ddfe508078209bb5a (refs/remotes/origin/main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f d0664e5be7487b300ed04c4ddfe508078209bb5a # timeout=10
+Commit message: "Delete src/test/java/basicweb/task1.java"
+ > git.exe rev-list --no-walk a2bb5f380f2d888277d3409b3ab0ee164529b5f0 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] git
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\workspace\task6\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/pranjalwagh/task6.git # timeout=10
+Fetching upstream changes from https://github.com/pranjalwagh/task6.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.44.0.windows.1'
+ > git.exe fetch --tags --force --progress -- https://github.com/pranjalwagh/task6.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision d0664e5be7487b300ed04c4ddfe508078209bb5a (refs/remotes/origin/main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f d0664e5be7487b300ed04c4ddfe508078209bb5a # timeout=10
+ > git.exe branch -a -v --no-abbrev # timeout=10
+ > git.exe branch -D main # timeout=10
+ > git.exe checkout -b main d0664e5be7487b300ed04c4ddfe508078209bb5a # timeout=10
+Commit message: "Delete src/test/java/basicweb/task1.java"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\task6>mvn clean compile 
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< Worldline:SeleniumAmazon >----------------------
+[INFO] Building SeleniumAmazon 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ SeleniumAmazon ---
+[INFO] Deleting C:\ProgramData\Jenkins\.jenkins\workspace\task6\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ SeleniumAmazon ---
+[INFO] skip non existing resourceDirectory C:\ProgramData\Jenkins\.jenkins\workspace\task6\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ SeleniumAmazon ---
+[INFO] No sources to compile
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.092 s
+[INFO] Finished at: 2024-04-12T16:57:34+05:30
+[INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\task6>mvn clean test 
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< Worldline:SeleniumAmazon >----------------------
+[INFO] Building SeleniumAmazon 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ SeleniumAmazon ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ SeleniumAmazon ---
+[INFO] skip non existing resourceDirectory C:\ProgramData\Jenkins\.jenkins\workspace\task6\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ SeleniumAmazon ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ SeleniumAmazon ---
+[INFO] skip non existing resourceDirectory C:\ProgramData\Jenkins\.jenkins\workspace\task6\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ SeleniumAmazon ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 1 source file with javac [debug target 1.8] to target\test-classes
+[WARNING] bootstrap class path not set in conjunction with -source 8
+[INFO] 
+[INFO] --- surefire:3.2.2:test (default-test) @ SeleniumAmazon ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.367 s
+[INFO] Finished at: 2024-04-12T16:57:42+05:30
+[INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
